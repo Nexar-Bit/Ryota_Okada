@@ -55,6 +55,7 @@ import {
   mongodb,
   microsoft,
   ibm,
+  msfullstackcert,
 } from "../assets";
 
 export const navLinks = [
@@ -324,6 +325,17 @@ const extracurricular = [
       "RAG Pipelines, Vector Databases, Agentic AI, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, MCP, Multimodal Generative AI",
     ],
     credential: "https://coursera.org/verify/professional-cert/S9ENFFEVMD37",
+  },
+  {
+    title: "Microsoft Full-Stack Developer",
+    type: "Professional Certificate",
+    icon: microsoft,
+    iconBg: "#000000",
+    date: "Feb 2026",
+    points: [
+      "C#, .NET 10, Blazor WebAssembly, ASP.NET Core Web API, SQL Server, JWT Auth, RBAC, CI/CD, Entity Framework Core",
+    ],
+    credential: "https://coursera.org/verify/professional-cert/MSK7DL3J65TJ",
   },
   {
   title: "GitHub Copilot Intermediate (GH-300)",

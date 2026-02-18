@@ -74,6 +74,7 @@ import financialflowimage from "./FinancialFlowDemonstration.png"
 const resume = "/resume";
 import awsdbcert from "./AWS Database Specialty Certified - Sunny Jayendra Patel.jpg"
 import connectwisecert from "./Connectwise-Scripting-Certification.pdf"
+import msfullstackcert from "./Microsoft-Full-Stack-Developer-Professional-Certificate.pdf"
 
 export {
   logo,
@@ -142,5 +143,6 @@ export {
   azure,
   staples,
   microsoft,
-  ibm
+  ibm,
+  msfullstackcert
 };
