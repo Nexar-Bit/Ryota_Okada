@@ -404,7 +404,7 @@ const projects = [
   {
     name: "ATS Screener 🔍",
     description:
-      "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform models its own parser strictness, keyword strategy (exact, fuzzy, semantic), and calibrated thresholds from vendor documentation. Dual-mode scoring engine: Gemma 3 27B as the primary LLM with a deterministic rule-based fallback for 100% uptime, plus a multi-provider chain to Llama 3.3 70B via Groq. Resume files never leave the browser thanks to client-side PDF/DOCX parsing. Serving 1,500+ users.",
+      "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform models its own parser strictness, keyword strategy, and calibrated thresholds from vendor docs. Dual-mode scoring engine with Gemma 3 27B as the primary LLM and a deterministic rule-based fallback for 100% uptime, plus client-side PDF/DOCX parsing so resume files never leave the browser. Serving 1,500+ users.",
     tags: [
       {
         name: "SvelteKit 2",
@@ -430,7 +430,7 @@ const projects = [
     {
     name: "Axelot ✍️",
     description:
-      "Axelot is a real-time collaborative writing and knowledge workspace built with Next.js 16, TypeScript, Firebase, TipTap 3, and Yjs. It supports multi-user editing with presence cursors, CRDT-based conflict-free sync over WebRTC, and AI-assisted editing via OpenRouter-backed Next.js API routes. Features secure auth with NextAuth v5 (Google/GitHub OAuth, email/password with bcrypt), Firestore-backed storage with Firebase custom tokens, a Vercel cron-powered trending algorithm, and production deployment via multi-stage Docker pipeline.",
+      "Axelot is a real-time collaborative writing and knowledge workspace built with Next.js 16, TypeScript, Firebase, TipTap 3, and Yjs. It supports multi-user editing with presence cursors, CRDT-based conflict-free sync over WebRTC, and AI-assisted editing via OpenRouter-backed Next.js API routes. Features secure auth with NextAuth v5, Firestore-backed storage with Firebase custom tokens, a Vercel cron-powered trending algorithm, and production deployment via multi-stage Docker pipeline.",
     tags: [
       {
         name: "Next.js 16",
@@ -482,7 +482,7 @@ const projects = [
   {
     name: "SecureBank 🏦",
     description:
-      "SecureBank is a deliberately vulnerable banking simulation built for Capture The Flag (CTF) training, focused on SQL injection and privilege escalation. It features exploit paths including raw query interpolation, single/double URL encoding, and a hidden admin portal to teach secure coding by example. Core features include transaction search/filter, a feedback system, and an admin dashboard with live DB console and security logs. Backed by a normalized SQLite schema with session handling via cookie-signature, and dockerized with structured challenge documentation.",
+      "SecureBank is a deliberately vulnerable banking simulation built for Capture The Flag (CTF) training, focused on SQL injection and privilege escalation. It features exploit paths including raw query interpolation, single/double URL encoding, and a hidden admin portal to teach secure coding by example. Core features include transaction search, a feedback system, and an admin dashboard with live DB console and security logs. Backed by a normalized SQLite schema with cookie-signature sessions and dockerized challenge docs.",
     tags: [
       {
         name: "CTF",
@@ -508,7 +508,7 @@ const projects = [
   {
     name: "Sunnify (Spotify Downloader) 🎵",
     description:
-      "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. Features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates, full concurrency through cooperating parallel workers, and 5 audio formats (mp3, m4a, opus, flac, wav) with format-aware metadata writers. Supports playlists with 1000+ tracks via Spotify's internal spclient API and ships as a Homebrew Cask alongside Windows and Linux installers via GitHub Actions matrix CI/CD. 100+ stars.",
+      "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. Features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates, full concurrency through cooperating parallel workers, and 5 audio formats with format-aware metadata writers. Supports playlists with 1000+ tracks via Spotify's internal spclient API and ships as a Homebrew Cask alongside Windows and Linux installers. 100+ stars.",
     tags: [
       {
         name: "Python",
@@ -586,7 +586,7 @@ const projects = [
   {
     name: "KnifeThrow 🎯",
     description:
-      "KnifeThrow is a Java Swing-based 2D mini-game, packed by maven with over 5000 lines of code. It includes a menu, game-over screens, sound effects, and custom sprites. Players unlock different knives with varied abilities in a dedicated knife shop. The game features improved collision systems, animations, and particle effects for an immersive experience.",
+      "KnifeThrow is a Java Swing arcade game built by hand in Grade 12 across 5,000+ lines of code, long before generative AI was mainstream. It features pick-up-and-play knife throwing with screen shake, particles, sound effects, and animated sprites. Players unlock new knives by hitting score milestones in the in-game shop, dodge incoming enemy knives with scaling difficulty, and trigger an EMP that flips nearby threats. Persistent player profiles, dual control schemes, and a post-run leaderboard.",
     tags: [
       {
         name: "java",
