@@ -260,13 +260,17 @@ const designTools = [
 
 const experiences = [
   {
-    title: "Software Engineer Intern",
+    title: "Software Developer",
     company_name: "IBM",
     icon: ibm,
     iconBg: "#fff",
     date: "Jan. 2026 - Present",
     points: [
-      "Full-Stack AI Engineering • watsonx Workshop 🤖",
+      "Built and shipped features across the full stack of an AI-powered sales enablement platform, spanning backend APIs, task orchestration, database migrations, frontend, and cloud infrastructure.",
+      "Integrated watsonx foundation models into platform workflows, including RAG pipelines, real-time LLM-driven internationalization, vector-based semantic search, and prompt engineering for AI-assisted content tooling.",
+      "Led multi-repository integrations across internal platform services, designing shared API contracts and decoupled dependencies built for maintainable service-to-service evolution, consumed by engineering teams across the organization.",
+      "Deployed to IBM Cloud with full operational visibility, shipping feature releases, performance fixes, outage resolution, and data migrations across staging and production environments.",
+      "Collaborated with non-technical stakeholders to scope, build, and iterate on client-facing tailored AI tools and internal workflows, translating business requirements into delivered systems with continuous revision cycles.",
     ],
   },
   {
@@ -400,7 +404,7 @@ const projects = [
   {
     name: "ATS Screener 🔍",
     description:
-      "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform uses its own weighted scoring model with verified math for keyword matching, format parsing, and experience evaluation. Features AI-powered scoring via Gemini with a rule-based fallback engine, PDF/DOCX parsing entirely in-browser, and per-platform optimization suggestions that reference specific lines in your resume. 500+ users on launch night.",
+      "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform models its own parser strictness, keyword strategy (exact, fuzzy, semantic), and calibrated thresholds from vendor documentation. Dual-mode scoring engine: Gemma 3 27B as the primary LLM with a deterministic rule-based fallback for 100% uptime, plus a multi-provider chain to Llama 3.3 70B via Groq. Resume files never leave the browser thanks to client-side PDF/DOCX parsing. Serving 1,500+ users.",
     tags: [
       {
         name: "SvelteKit 2",
@@ -504,7 +508,7 @@ const projects = [
   {
     name: "Sunnify (Spotify Downloader) 🎵",
     description:
-      "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. It features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates and supports playlists with 1000+ tracks via Spotify's internal spclient API. Includes retry logic with exponential backoff for rate limiting, cross-platform FFmpeg detection, 43 pytest unit tests with GitHub Actions CI/CD, and ships as a Homebrew Cask.",
+      "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. Features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates, full concurrency through cooperating parallel workers, and 5 audio formats (mp3, m4a, opus, flac, wav) with format-aware metadata writers. Supports playlists with 1000+ tracks via Spotify's internal spclient API and ships as a Homebrew Cask alongside Windows and Linux installers via GitHub Actions matrix CI/CD. 100+ stars.",
     tags: [
       {
         name: "Python",
