@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import { useState, useEffect } from "react";
+import { useI18n } from "../i18n";
 
 const TypewriterText = ({ texts }) => {
   const [displayText, setDisplayText] = useState("");
@@ -9,6 +10,7 @@ const TypewriterText = ({ texts }) => {
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
+    if (!texts?.length) return;
     const typingInterval = setInterval(() => {
       if (isTyping) {
         const currentText = texts[currentIndex];
@@ -21,21 +23,27 @@ const TypewriterText = ({ texts }) => {
             setIsTyping(true);
             setDisplayText("");
             setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-          }, 2000); // Delay before next typing cycle
+          }, 2000);
         }
       }
-    }, 100); // Typing speed
+    }, 100);
 
     return () => {
       clearInterval(typingInterval);
     };
   }, [currentIndex, isTyping, texts, displayText]);
 
+  useEffect(() => {
+    setDisplayText("");
+    setCurrentIndex(0);
+    setIsTyping(true);
+  }, [texts]);
+
   return (
     <span className="inline-block text-[#915EFF] font-bold">
-      {displayText.split('').map((char, index) => (
+      {displayText.split("").map((char, index) => (
         <motion.span
-          key={index}
+          key={`${char}-${index}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.1 }}
@@ -59,25 +67,22 @@ const TypewriterText = ({ texts }) => {
 
 const WavingHand = () => {
   return (
-    <img 
-      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png" 
-      alt="Waving Hand"
+    <img
+      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
+      alt=""
       className="wave-emoji"
-      style={{ display: 'inline-block', marginLeft: '10px', width: '50px', height: '50px' }}
+      style={{ display: "inline-block", marginLeft: "10px", width: "50px", height: "50px" }}
     />
   );
 };
 
 const Hero = () => {
-  const typedItems = [
-    "Full Stack Software Engineer",
-    "Based in Japan",
-    "Web & APIs",
-    "End-to-End Products",
-  ]
+  const { get, t } = useI18n();
+  const typedItems = get("hero.typed");
+  const welcome = t("hero.welcomeBold");
 
   return (
-    <section className="relative isolate w-full min-h-screen mx-auto overflow-hidden bg-primary">
+    <section className="relative isolate w-full min-h-screen mx-auto overflow-x-hidden overflow-y-visible bg-primary">
       <style>{`
         @keyframes hero-wave {
           0% { transform: rotate(0deg); }
@@ -104,17 +109,18 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I&apos;m <span className="text-[#915EFF]">Ryota</span> <WavingHand />
+            {t("hero.greetingHi")}
+            <span className="text-[#915EFF]">{t("hero.name")}</span> <WavingHand />
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I'm a <TypewriterText texts={typedItems} />
+            <TypewriterText texts={Array.isArray(typedItems) ? typedItems : []} />
             <br />
-            <b>Welcome to my portfolio, please view on desktop for an interactive experience!</b>
+            <b>{welcome}</b>
           </p>
         </div>
       </div>
 
-      <div className="relative z-0 mt-4 h-[min(52vh,560px)] min-h-[280px] w-full sm:h-[min(55vh,600px)]">
+      <div className="relative z-0 mt-6 sm:mt-10 flex min-h-[380px] h-[min(64vh,720px)] w-full flex-col sm:min-h-[420px] sm:h-[min(66vh,760px)]">
         <ComputersCanvas />
       </div>
 

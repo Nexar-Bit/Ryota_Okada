@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useI18n } from "../i18n";
 
 // Import all assets
 import {
@@ -68,6 +69,7 @@ const contentProduction = [
 ];
 
 const Tech = () => {
+  const { t } = useI18n();
   const [rows, setRows] = useState({
     programming: [],
     itTools: [],
@@ -177,7 +179,7 @@ const Tech = () => {
           textFillColor: "transparent",
           filter: "drop-shadow(0 0 10px #915EFF)",
         }}
-      >{`<${categoryName}>`}</motion.h2>
+      >{`<${t(`tech.categories.${categoryName}`)}>`}</motion.h2>
       <div className="honeycomb-grid">
         {categoryRows?.map((row, rowIndex) => (
           <div
@@ -215,7 +217,7 @@ const Tech = () => {
           textFillColor: "transparent",
           filter: "drop-shadow(0 0 10px #915EFF)",
         }}
-      >{`</${categoryName}>`}</motion.h2>
+      >{`</${t(`tech.categories.${categoryName}`)}>`}</motion.h2>
     </motion.div>
   );
 
@@ -223,8 +225,8 @@ const Tech = () => {
     <section className="skills" ref={ref}>
       <div className="container">
         <motion.div variants={textVariant()}>
-          <p className={`${styles.sectionSubText} text-center`}>Technical Proficiencies</p>
-          <h2 className={`${styles.sectionHeadText} text-center`}>Skills.</h2>
+          <p className={`${styles.sectionSubText} text-center`}>{t("tech.subtitle")}</p>
+          <h2 className={`${styles.sectionHeadText} text-center`}>{t("tech.title")}</h2>
         </motion.div>
         {renderCategory("programming", rows.programming)}
         {renderCategory("itTools", rows.itTools)}

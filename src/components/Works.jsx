@@ -6,14 +6,17 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn } from "../utils/motion";
+import { useI18n } from "../i18n";
 
 const ProjectCard = ({
-  name,
-  description,
-  tags,
-  image,
+  project,
   animate,
 }) => {
+  const { get } = useI18n();
+  const loc = project?.id ? get(`projects.${project.id}`) : null;
+  const name = loc?.name ?? project.name;
+  const description = loc?.description ?? project.description;
+  const { tags, image } = project;
   return (
     <motion.div variants={animate}>
       <Tilt
@@ -50,6 +53,7 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const { t } = useI18n();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -200px 0px" }); // Adjust amount as needed
   const mainControls = useAnimation();
@@ -70,9 +74,7 @@ const Works = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <h3 className={`${styles.sectionSubText} text-center`}>
-          Innovative Creations
-        </h3>
+        <h3 className={`${styles.sectionSubText} text-center`}>{t("works.subtitle")}</h3>
       </motion.div>
 
       <motion.div
@@ -83,7 +85,7 @@ const Works = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <h3 className={`${styles.sectionHeadText} text-center`}>Projects.</h3>
+        <h3 className={`${styles.sectionHeadText} text-center`}>{t("works.title")}</h3>
       </motion.div>
 
       <motion.div>
@@ -96,13 +98,13 @@ const Works = () => {
         >
           {projects.map((project, index) => (
             <ProjectCard
-              key={`project-${index}`}
+              key={project.id ?? `project-${index}`}
+              project={project}
               animate={
                 window.innerWidth <= 768
                   ? {}
                   : fadeIn("up", "spring", index * 0.5, 0.75)
               }
-              {...project}
             />
           ))}
         </div>

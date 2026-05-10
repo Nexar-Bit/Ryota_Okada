@@ -28,8 +28,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.75 : 0.75}
-        position={isMobile ? [0, -3, 0] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.68 : 0.68}
+        position={isMobile ? [0, -2.65, 0] : [0, -2.95, -1.5]}
         rotation={isMobile ? [0, 0, 0] : [-0.01, -0.2, -0.1]}
       />
     </group>
@@ -67,8 +67,8 @@ const ComputersCanvas = () => {
       shadows
       dpr={[1, 2]}
       camera={isMobile ? 
-        { position: [0, 0, 20], fov: 50 } : 
-        { position: [20, 3, 5], fov: 25 }
+        { position: [0, 0.55, 21.5], fov: 52 } : 
+        { position: [20.5, 3.55, 6.25], fov: 28 }
       }
       gl={{ preserveDrawingBuffer: true }}
     >

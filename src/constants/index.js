@@ -59,30 +59,13 @@ import {
 } from "../assets";
 
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "education",
-    title: "Education",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "extracurricular",
-    title: "Certifications",
-  },
-  {
-    id: "skills",
-    title: "Skills",
-  },
-  {
-    id: "projects",
-    title: "Projects",
-  },
+  { id: "about", titleKey: "nav.about" },
+  { id: "education", titleKey: "nav.education" },
+  { id: "work", titleKey: "nav.work" },
+  { id: "extracurricular", titleKey: "nav.certifications" },
+  { id: "skills", titleKey: "nav.skills" },
+  { id: "projects", titleKey: "nav.projects" },
+  { id: "feedback", titleKey: "nav.feedback" },
 ];
 
 const services = [
@@ -106,6 +89,7 @@ const services = [
 
 const education = [
   {
+    id: "cs-degree",
     title: "Honours Computer Science (H. BSc)",
     company_name: "Ontario Tech University, Oshawa, ON",
     icon: otu,
@@ -118,6 +102,7 @@ const education = [
     ],
   },
   {
+    id: "high-school",
     title: "High School",
     company_name: "Richmond Hill High School, ON",
     icon: rhhs,
@@ -256,6 +241,7 @@ const designTools = [
 
 const experiences = [
   {
+    id: "ibm",
     title: "Software Developer",
     company_name: "IBM",
     icon: ibm,
@@ -270,6 +256,7 @@ const experiences = [
     ],
   },
   {
+    id: "wonderland",
     title: "IT Technician",
     company_name: "Canada's Wonderland",
     icon: wonderland,
@@ -284,6 +271,7 @@ const experiences = [
     ],
   },
   {
+    id: "mackenzie",
     title: "System Support Specialist",
     company_name: "Mackenzie Health",
     icon: mackenziehealth,
@@ -298,6 +286,7 @@ const experiences = [
     ],
   },
   {
+    id: "staples",
     title: "Tech Sales Associate",
     company_name: "Staples Canada (Co-op)",
     icon: staples,
@@ -316,6 +305,7 @@ const experiences = [
 
 const extracurricular = [
   {
+    id: "ibm-rag",
     title: "IBM RAG and Agentic AI",
     type: "Professional Certificate",
     icon: ibm,
@@ -327,6 +317,7 @@ const extracurricular = [
     credential: "https://coursera.org/verify/professional-cert/S9ENFFEVMD37",
   },
   {
+    id: "ms-fullstack",
     title: "Microsoft Full-Stack Developer",
     type: "Professional Certificate",
     icon: microsoft,
@@ -338,6 +329,7 @@ const extracurricular = [
     credential: "https://coursera.org/verify/professional-cert/MSK7DL3J65TJ",
   },
   {
+  id: "github-copilot",
   title: "GitHub Copilot Intermediate (GH-300)",
   type: "Professional Certificate",
   icon: microsoft,
@@ -349,6 +341,7 @@ const extracurricular = [
   credential: "https://learn.microsoft.com/api/credentials/share/en-us/sunnypatell/D07D3774894C605?sharingId=6255C292987551EF",
   },
   {
+    id: "mongodb-python",
     title: "MongoDB Python Developer Path",
     type: "Proof of Completion",
     icon: mongodb,
@@ -358,6 +351,7 @@ const extracurricular = [
     credential: "https://learn.mongodb.com/c/tf2DSC7hTcyM3NBZjkLPoA",
   },
   {
+    id: "github-foundations",
     title: "Github Foundations",
     type: "Professional Certificate",
     icon: github,
@@ -367,6 +361,7 @@ const extracurricular = [
     credential: "https://www.credly.com/badges/b6f69785-2da8-447e-b02c-3350bf9af803",
   },
   {
+    id: "connectwise-architect",
     title: "Certified Enterprise Scripting Architect",
     type: "Automate | Connectwise University",
     icon: connectwise,
@@ -376,6 +371,7 @@ const extracurricular = [
     credential: connectwisecert,
   },
   {
+    id: "google-python",
     title: "Google IT Automation With Python",
     type: "Professional Certificate",
     icon: google,
@@ -387,6 +383,7 @@ const extracurricular = [
     credential: "https://www.coursera.org/account/accomplishments/specialization/certificate/82SZFUWF4B3T",
   },
   {
+    id: "whmis",
     title: "WHMIS (Worker Health and Safety)",
     type: "Government Workforce Requirement",
     icon: whmis,
@@ -398,6 +395,7 @@ const extracurricular = [
 
 const projects = [
   {
+    id: "ats-screener",
     name: "ATS Screener 🔍",
     description:
       "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform models its own parser strictness, keyword strategy, and calibrated thresholds from vendor docs. Dual-mode scoring engine with Gemma 3 27B as the primary LLM and a deterministic rule-based fallback for 100% uptime, plus client-side PDF/DOCX parsing so resume files never leave the browser. Serving 1,500+ users.",
@@ -424,6 +422,7 @@ const projects = [
     live_project_link: "https://ats-screener.vercel.app",
   },
     {
+    id: "axelot",
     name: "Axelot ✍️",
     description:
       "Axelot is a real-time collaborative writing and knowledge workspace built with Next.js 16, TypeScript, Firebase, TipTap 3, and Yjs. It supports multi-user editing with presence cursors, CRDT-based conflict-free sync over WebRTC, and AI-assisted editing via OpenRouter-backed Next.js API routes. Features secure auth with NextAuth v5, Firestore-backed storage with Firebase custom tokens, a Vercel cron-powered trending algorithm, and production deployment via multi-stage Docker pipeline.",
@@ -450,6 +449,7 @@ const projects = [
     live_project_link: "https://www.axelot.io",
   },
   {
+    id: "netdash",
     name: "Netdash (Networking Toolbox) 🌐",
     description:
       "Netdash is a cross-platform Electron desktop app (macOS, Windows, Linux) with Homebrew distribution, featuring Firebase Auth with Google OAuth and real-time Firestore sync. It includes 15+ networking tools for subnetting, VLSM, IP conflict detection, and multi-vendor configuration generation. Built with RTT measurement via Performance API, TCP port scanning, DNS-over-HTTPS with TTL-aware caching, and RFC-compliant IPv4/IPv6 algorithms with WCAG2.2 accessibility compliance.",
@@ -476,6 +476,7 @@ const projects = [
     live_project_link: "https://netdash-toolkit.vercel.app/",
   },
   {
+    id: "securebank",
     name: "SecureBank 🏦",
     description:
       "SecureBank is a deliberately vulnerable banking simulation built for Capture The Flag (CTF) training, focused on SQL injection and privilege escalation. It features exploit paths including raw query interpolation, single/double URL encoding, and a hidden admin portal to teach secure coding by example. Core features include transaction search, a feedback system, and an admin dashboard with live DB console and security logs. Backed by a normalized SQLite schema with cookie-signature sessions and dockerized challenge docs.",
@@ -502,6 +503,7 @@ const projects = [
     live_project_link: "https://github.com/sunnypatell/securebank-ctf",
   },
   {
+    id: "sunnify",
     name: "Sunnify (Spotify Downloader) 🎵",
     description:
       "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. Features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates, full concurrency through cooperating parallel workers, and 5 audio formats with format-aware metadata writers. Supports playlists with 1000+ tracks via Spotify's internal spclient API and ships as a Homebrew Cask alongside Windows and Linux installers. 100+ stars.",
@@ -580,6 +582,7 @@ const projects = [
   //   live_project_link: "https://enterprise-api-request-tester.vercel.app/",
   // },
   {
+    id: "knifethrow",
     name: "KnifeThrow 🎯",
     description:
       "KnifeThrow is a Java Swing arcade game built by hand in Grade 12 across 5,000+ lines of code, long before generative AI was mainstream. It features pick-up-and-play knife throwing with screen shake, particles, sound effects, and animated sprites. Players unlock new knives by hitting score milestones in the in-game shop, dodge incoming enemy knives with scaling difficulty, and trigger an EMP that flips nearby threats. Persistent player profiles, dual control schemes, and a post-run leaderboard.",

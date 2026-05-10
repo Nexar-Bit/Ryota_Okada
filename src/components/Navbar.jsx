@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo } from "../assets";
+import { useI18n } from "../i18n";
 
 const Navbar = () => {
+  const { t } = useI18n();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -109,21 +111,21 @@ const Navbar = () => {
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
+          {navLinks.map((nav, index) => (
             <motion.li
               key={nav.id}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: nav.id * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
             >
               <a
                 href={`#${nav.id}`}
                 className={`${
-                  active === nav.title ? "text-white" : "text-secondary"
+                  active === nav.titleKey ? "text-white" : "text-secondary"
                 } hover:text-white text-[18px] font-medium cursor-pointer transition-colors duration-300`}
-                onClick={() => setActive(nav.title)}
+                onClick={() => setActive(nav.titleKey)}
               >
-                {nav.title}
+                {t(nav.titleKey)}
               </a>
             </motion.li>
           ))}
@@ -147,21 +149,21 @@ const Navbar = () => {
             transition={{ duration: 0.2 }}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
+              {navLinks.map((nav, index) => (
                 <motion.li
                   key={nav.id}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: nav.id * 0.1 }}
+                  transition={{ duration: 0.3, delay: index * 0.06 }}
                   className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
+                    active === nav.titleKey ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
                     setToggle(!toggle);
-                    setActive(nav.title);
+                    setActive(nav.titleKey);
                   }}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <a href={`#${nav.id}`}>{t(nav.titleKey)}</a>
                 </motion.li>
               ))}
             </ul>

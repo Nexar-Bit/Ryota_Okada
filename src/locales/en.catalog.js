@@ -1,0 +1,287 @@
+/** English UI strings & localized portfolio copy (source catalog). */
+export default {
+  nav: {
+    about: "About",
+    education: "Education",
+    work: "Work",
+    certifications: "Certifications",
+    skills: "Skills",
+    projects: "Projects",
+    feedback: "Client feedback",
+  },
+  hero: {
+    greetingHi: "Hi, I'm ",
+    name: "Ryota",
+    typed: ["Full Stack Software Engineer", "Based in Japan", "Web & APIs", "End-to-End Products"],
+    welcomeBold:
+      "Welcome to my portfolio — for the full interactive experience, please view on desktop.",
+  },
+  about: {
+    intro: "Introduction",
+    overview: "Overview.",
+    bullets: [
+      "I'm Ryota Okada, a Full Stack Software Engineer based in Japan—shipping APIs, data layers, and interfaces users rely on every day.",
+      "I care about clear architecture, maintainable codebases, and collaboration across design, product, and engineering.",
+      "From backend services and databases to React-based front ends, I enjoy owning features end to end and improving how teams deliver software.",
+      "Always learning—whether that's performance, DevOps, or new frameworks that fit the problem at hand.",
+      "I'm always curious and constantly learning.",
+    ],
+    services: [
+      "Full Stack Development",
+      "Backend & APIs",
+      "Cloud & Reliability",
+      "Frontend & UX",
+    ],
+  },
+  education: {
+    subtitle: "What I have studied so far",
+    title: "Education.",
+    items: {
+      "cs-degree": {
+        title: "Honours Computer Science (H. BSc)",
+        school: "Ontario Tech University, Oshawa, ON",
+        points: ["President's List - Winter 2025", "Dean's Honours List - Fall 2024"],
+      },
+      "high-school": {
+        title: "High School",
+        school: "Richmond Hill High School, ON",
+        points: ["Ontario Scholar", "12th Grade: 96%"],
+      },
+    },
+  },
+  experience: {
+    subtitle: "My professional journey",
+    title: "Work experience",
+    items: {
+      ibm: {
+        title: "Software Developer",
+        company: "IBM",
+        date: "Jan. 2026 - Present",
+        points: [
+          "Built and shipped features across the full stack of an AI-powered sales enablement platform, spanning backend APIs, task orchestration, database migrations, frontend, and cloud infrastructure.",
+          "Integrated watsonx foundation models into platform workflows, including RAG pipelines, real-time LLM-driven internationalization, vector-based semantic search, and prompt engineering for AI-assisted content tooling.",
+          "Led multi-repository integrations across internal platform services, designing shared API contracts and decoupled dependencies built for maintainable service-to-service evolution, consumed by engineering teams across the organization.",
+          "Deployed to IBM Cloud with full operational visibility, shipping feature releases, performance fixes, outage resolution, and data migrations across staging and production environments.",
+          "Collaborated with non-technical stakeholders to scope, build, and iterate on client-facing tailored AI tools and internal workflows, translating business requirements into delivered systems with continuous revision cycles.",
+        ],
+      },
+      wonderland: {
+        title: "IT Technician",
+        company: "Canada's Wonderland",
+        date: "Jun. 2023 - Jan. 2026",
+        points: [
+          "Provisioned Windows PCs with MDT, and deployed scripting via PowerShell and ConnectWise.",
+          "Managed AD accounts to propagate ACLs and unified access across in-house apps, Exchange, and SharePoint.",
+          "Configured Cisco CUCM, Unity, and Finesse for stable call routing and voicemail services.",
+          "Handled switch patching and VLAN/routing via PuTTY & SecureCRT, ensuring stable network performance.",
+          "Deployed Oracle POS/KDS/Debit solutions (EMC, Simphony), tracking updates in Jira & Confluence.",
+        ],
+      },
+      mackenzie: {
+        title: "System Support Specialist",
+        company: "Mackenzie Health",
+        date: "Jan. 2023 - Aug. 2023",
+        points: [
+          "Overhauled 400+ Surface tablets to bedside iPads, deploying the in-house 'Get Well Soon' app with Intune to hospital systems.",
+          "Developed and refined an admin portal for managing app services, user roles, and subscription expirations.",
+          "Utilized Jamf Pro for MDM, securely deploying iPads/iPhones across clinical departments.",
+          "Implemented Vocera VOIP on iPhones, enabling real-time communication among nurses and ER staff.",
+          "Performed in-room checks, resolved device issues, and collaborated with vendors on bug logs and system updates.",
+        ],
+      },
+      staples: {
+        title: "Tech Sales Associate",
+        company: "Staples Canada (Co-op)",
+        date: "Sep. 2020 - Feb. 2021",
+        points: [
+          "Provided specialized support for Windows, Mac, and Linux, performing on-site installations, repairs, and optimizations.",
+          "Streamlined inventory processes by handling SKUs and POs, maintaining a well-organized sales floor.",
+          "Maintained accurate sales and inventory data in IBM AS/400, improving workflows and operational efficiency.",
+          "Resolved complex technical inquiries, delivering tailored solutions that ensured high customer satisfaction.",
+          "Facilitated e-commerce transactions, merging in-store and online channels.",
+        ],
+      },
+    },
+  },
+  extracurricular: {
+    subtitle: "Continuous learning",
+    title: "Certifications",
+    viewCredential: "View credential",
+    items: {
+      "ibm-rag": {
+        title: "IBM RAG and Agentic AI",
+        type: "Professional Certificate",
+        date: "Feb 2026",
+        points: [
+          "RAG Pipelines, Vector Databases, Agentic AI, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, MCP, Multimodal Generative AI",
+        ],
+      },
+      "ms-fullstack": {
+        title: "Microsoft Full-Stack Developer",
+        type: "Professional Certificate",
+        date: "Feb 2026",
+        points: [
+          "C#, .NET 10, Blazor WebAssembly, ASP.NET Core Web API, SQL Server, JWT Auth, RBAC, CI/CD, Entity Framework Core",
+        ],
+      },
+      "github-copilot": {
+        title: "GitHub Copilot Intermediate (GH-300)",
+        type: "Professional Certificate",
+        date: "Issued: Oct 13, 2025 - Expires: Oct 13, 2027",
+        points: [
+          "Prompt Engineering, Copilot Chat Architecture, Policy Enforcement, Enterprise AI Integration, Secure Development Workflows",
+        ],
+      },
+      "mongodb-python": {
+        title: "MongoDB Python Developer Path",
+        type: "Proof of Completion",
+        date: "Feb 2025",
+        points: ["PyMongo, NoSQL Schema Design, Data Aggregation, MongoDB Query Optimization"],
+      },
+      "github-foundations": {
+        title: "Github Foundations",
+        type: "Professional Certificate",
+        date: "Issued: Sep 2024 - Expires: Sep 2027",
+        points: ["Version Control, Git, Actions, CI/CD, Repository Management, SAP Workflow"],
+      },
+      "connectwise-architect": {
+        title: "Certified Enterprise Scripting Architect",
+        type: "Automate | Connectwise University",
+        date: "Jul 2024",
+        points: ["RMM, MDM, Powershell, Scripting, Windows Server, Enterprise Architecture, Query Optimization"],
+      },
+      "google-python": {
+        title: "Google IT Automation With Python",
+        type: "Professional Certificate",
+        date: "Mar 2023",
+        points: [
+          "Configuration Management, Automation, Google Cloud Platform (GCP), Cloud Servers and VM's, Version Control Tools, Automation.",
+        ],
+      },
+      whmis: {
+        title: "WHMIS (Worker Health and Safety)",
+        type: "Government Workforce Requirement",
+        date: "Sep 2020",
+        points: ["Hazard Awareness, Legal Compliance, Personal Protection, Accident Prevention"],
+      },
+    },
+  },
+  tech: {
+    subtitle: "Technical proficiencies",
+    title: "Skills.",
+    categories: {
+      programming: "Programming",
+      itTools: "IT Tools",
+      contentProduction: "Content Production",
+    },
+  },
+  works: {
+    subtitle: "Innovative creations",
+    title: "Projects.",
+  },
+  feedback: {
+    subtitle: "Social proof",
+    title: "Client feedback.",
+    ratingLabel: "Five-star client rating",
+    reviews: [
+      "Ryota shipped our API and admin dashboard ahead of schedule. Communication across time zones was effortless and code review feedback was always constructive.",
+      "Strong full-stack delivery — the React client and Node services slotted into our stack without drama. Documentation made handoff to our team painless.",
+      "Detail-oriented and calm under scope changes. Milestones were predictable and the codebase stayed readable the whole way through.",
+      "Clear technical explanations in English and a pragmatic approach to trade-offs. Production rollout was smooth and well rehearsed.",
+      "Responsive in both Japanese and English, with thoughtful UX suggestions that improved our flows beyond the original spec.",
+      "Helped us tighten performance and bundle size without sacrificing features. Collaborated closely with design and QA.",
+      "Structured sprints, honest estimates, and no surprises at invoicing. Exactly the professionalism we needed on a fixed budget.",
+      "Creative solutions on an aggressive timeline — we launched on time and the Italian stakeholders loved the polish.",
+      "PRs were small, well described, and easy to review. Our Korean product team appreciated the clarity on breaking changes.",
+      "End-to-end ownership from schema design to deployment. Felt like an embedded engineer rather than a contractor.",
+      "Solid CI and environment hygiene — fewer \"works on my machine\" moments than we are used to.",
+      "Accessibility and keyboard flows were handled meticulously; our audit came back cleaner than expected.",
+      "Patient with evolving requirements and fast at iterating on feedback. Integration with legacy systems went better than planned.",
+      "High velocity without cutting corners on tests. I'd recommend Ryota for any team that values maintainability.",
+      "Excellent written English, proactive updates in chat, and deep debugging skills when production edge cases appeared.",
+      "Respected regional compliance constraints while still shipping weekly. Balancing speed and rigor is rare.",
+      "Weekly demos kept leadership aligned. Estimates matched reality and documentation aged well.",
+      "Warm, collaborative style — stakeholders felt heard and engineers got crisp technical direction.",
+      "Performance tuning made our dashboard feel instant. Clear before/after metrics in every milestone recap.",
+      "Bridges product questions and engineering execution; catches ambiguity early before it becomes rework.",
+      "Implemented from Figma with pixel care where it mattered and sensible shortcuts where it didn't.",
+      "Flexible with meeting windows across hemispheres. Never blocked the squad on time zones.",
+      "Paid down technical debt while delivering features — our linter and test coverage actually improved.",
+      "Thoughtful logging and error boundaries saved us during launch week triage.",
+      "Straightforward timelines and direct communication — no theater, just delivery.",
+      "i18n and locale edge cases were handled thoroughly; our multilingual rollout was painless.",
+      "REST APIs were consistent, versioned, and easy for our mobile team to consume.",
+      "Understood our brand direction and kept visual language cohesive across new screens.",
+      "Security-conscious defaults without slowing the roadmap — a balance our audit appreciated.",
+      "Steady presence during go-live; critical issues were triaged and patched within hours.",
+      "Git history and README updates meant new hires could contribute on day two.",
+      "Iterative reviews felt like a partnership — measured improvements every cycle until we signed off delighted.",
+    ],
+  },
+  projects: {
+    "ats-screener": {
+      name: "ATS Screener 🔍",
+      description:
+        "Free, open-source ATS resume screener that simulates 6 real enterprise platforms (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors) instead of giving you one made-up score. Each platform models its own parser strictness, keyword strategy, and calibrated thresholds from vendor docs. Dual-mode scoring engine with Gemma 3 27B as the primary LLM and a deterministic rule-based fallback for 100% uptime, plus client-side PDF/DOCX parsing so resume files never leave the browser. Serving 1,500+ users.",
+    },
+    axelot: {
+      name: "Axelot ✍️",
+      description:
+        "Axelot is a real-time collaborative writing and knowledge workspace built with Next.js 16, TypeScript, Firebase, TipTap 3, and Yjs. It supports multi-user editing with presence cursors, CRDT-based conflict-free sync over WebRTC, and AI-assisted editing via OpenRouter-backed Next.js API routes. Features secure auth with NextAuth v5, Firestore-backed storage with Firebase custom tokens, a Vercel cron-powered trending algorithm, and production deployment via multi-stage Docker pipeline.",
+    },
+    netdash: {
+      name: "Netdash (Networking Toolbox) 🌐",
+      description:
+        "Netdash is a cross-platform Electron desktop app (macOS, Windows, Linux) with Homebrew distribution, featuring Firebase Auth with Google OAuth and real-time Firestore sync. It includes 15+ networking tools for subnetting, VLSM, IP conflict detection, and multi-vendor configuration generation. Built with RTT measurement via Performance API, TCP port scanning, DNS-over-HTTPS with TTL-aware caching, and RFC-compliant IPv4/IPv6 algorithms with WCAG2.2 accessibility compliance.",
+    },
+    securebank: {
+      name: "SecureBank 🏦",
+      description:
+        "SecureBank is a deliberately vulnerable banking simulation built for Capture The Flag (CTF) training, focused on SQL injection and privilege escalation. It features exploit paths including raw query interpolation, single/double URL encoding, and a hidden admin portal to teach secure coding by example. Core features include transaction search, a feedback system, and an admin dashboard with live DB console and security logs. Backed by a normalized SQLite schema with cookie-signature sessions and dockerized challenge docs.",
+    },
+    sunnify: {
+      name: "Sunnify (Spotify Downloader) 🎵",
+      description:
+        "Sunnify is a Spotify downloader that reverse-engineers embed pages to extract track metadata by parsing protected JSON states without authentication. Features a cross-platform PyQt5 desktop client (macOS, Windows, Linux) with thread-safe UI updates, full concurrency through cooperating parallel workers, and 5 audio formats with format-aware metadata writers. Supports playlists with 1000+ tracks via Spotify's internal spclient API and ships as a Homebrew Cask alongside Windows and Linux installers. 100+ stars.",
+    },
+    knifethrow: {
+      name: "KnifeThrow 🎯",
+      description:
+        "KnifeThrow is a Java Swing arcade game built by hand in Grade 12 across 5,000+ lines of code, long before generative AI was mainstream. It features pick-up-and-play knife throwing with screen shake, particles, sound effects, and animated sprites. Players unlock new knives by hitting score milestones in the in-game shop, dodge incoming enemy knives with scaling difficulty, and trigger an EMP that flips nearby threats. Persistent player profiles, dual control schemes, and a post-run leaderboard.",
+    },
+  },
+  countries: {
+    US: "United States",
+    SG: "Singapore",
+    SE: "Sweden",
+    FR: "France",
+    JP: "Japan",
+    IN: "India",
+    DE: "Germany",
+    IT: "Italy",
+    KR: "Korea",
+    CA: "Canada",
+    ES: "Spain",
+    HU: "Hungary",
+    CN: "China",
+    GB: "United Kingdom",
+    RU: "Russia",
+    AE: "United Arab Emirates",
+    NO: "Norway",
+    BR: "Brazil",
+    IE: "Ireland",
+    AT: "Austria",
+    AU: "Australia",
+    RO: "Romania",
+    VN: "Vietnam",
+    NZ: "New Zealand",
+    NL: "Netherlands",
+    TW: "Taiwan",
+    MX: "Mexico",
+    PK: "Pakistan",
+    FI: "Finland",
+    PT: "Portugal",
+    ZA: "South Africa",
+    DK: "Denmark",
+  },
+}

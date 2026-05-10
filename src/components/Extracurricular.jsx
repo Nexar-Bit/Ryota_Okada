@@ -6,12 +6,13 @@ import { styles } from "../styles";
 import { extracurricular } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useI18n } from "../i18n";
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-const CertificationCard = ({ title, icon, type, date, points, credential }) => (
+const CertificationCard = ({ title, icon, type, date, points, credential, viewCredentialLabel }) => (
   <div className="certification-card bg-tertiary p-6 rounded-2xl w-full h-full flex flex-col justify-between no-select">
     <div>
       <div className="relative w-full h-[50px] mb-4">
@@ -42,13 +43,14 @@ const CertificationCard = ({ title, icon, type, date, points, credential }) => (
         rel="noopener noreferrer"
         className="black-gradient text-secondary py-2 px-4 rounded-lg outline-none w-fit text-[12px] font-bold shadow-md shadow-primary transition-all hover:scale-105 hover:shadow-[0_0_10px_rgba(128,0,128,0.7)] no-select"
       >
-        View Credential
+        {viewCredentialLabel}
       </a>
     </div>
   </div>
 );
 
 const Extracurricular = () => {
+  const { get, t } = useI18n();
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.05, margin: "0px 0px -80px 0px" });
@@ -83,7 +85,7 @@ const Extracurricular = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={`${styles.sectionSubText} text-center`}>Continuous Learning</p>
+        <p className={`${styles.sectionSubText} text-center`}>{t("extracurricular.subtitle")}</p>
       </motion.div>
 
       <motion.div
@@ -94,7 +96,7 @@ const Extracurricular = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <h2 className={`${styles.sectionHeadText} text-center`}>Certifications</h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>{t("extracurricular.title")}</h2>
       </motion.div>
 
       <motion.div 
@@ -134,15 +136,26 @@ const Extracurricular = () => {
           }}
          
         >
-          {extracurricular.map((certification, index) => (
-            <SwiperSlide key={`certification-${index}`}>
-              <CertificationCard {...certification} />
-            </SwiperSlide>
-          ))}
+          {extracurricular.map((cert, index) => {
+            const loc = cert.id ? get(`extracurricular.items.${cert.id}`) : null;
+            const merged = {
+              ...cert,
+              title: loc?.title ?? cert.title,
+              type: loc?.type ?? cert.type,
+              date: loc?.date ?? cert.date,
+              points: Array.isArray(loc?.points) ? loc.points : cert.points,
+              viewCredentialLabel: t("extracurricular.viewCredential"),
+            };
+            return (
+              <SwiperSlide key={cert.id ?? `certification-${index}`}>
+                <CertificationCard {...merged} />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </motion.div>
 
-      <style jsx global>{`
+      <style>{`
         .mySwiper {
           width: 100%;
           padding-top: 50px;

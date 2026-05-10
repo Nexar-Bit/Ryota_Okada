@@ -3,7 +3,8 @@ import { motion, AnimatePresence, useAnimation, useInView } from "framer-motion"
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant, fadeIn } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
+import { useI18n } from "../i18n";
 
 const ExperienceCard = React.memo(({ experience, isActive, onClick, index }) => {
   return (
@@ -65,11 +66,26 @@ const ExperienceDetails = React.memo(({ experience }) => {
 });
 
 const Experience = () => {
+  const { get, t } = useI18n();
   const [activeExperience, setActiveExperience] = useState(0);
   const [isPending, startTransition] = useTransition();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.05, margin: "0px 0px -80px 0px" });
   const mainControls = useAnimation();
+
+  const localizedExperiences = useMemo(() => {
+    return experiences.map((exp) => {
+      const loc = exp.id ? get(`experience.items.${exp.id}`) : null;
+      if (!loc) return exp;
+      return {
+        ...exp,
+        title: loc.title ?? exp.title,
+        company_name: loc.company ?? exp.company_name,
+        date: loc.date ?? exp.date,
+        points: Array.isArray(loc.points) ? loc.points : exp.points,
+      };
+    });
+  }, [get, experiences]);
 
   const handleExperienceClick = useCallback((index) => {
     startTransition(() => {
@@ -77,7 +93,10 @@ const Experience = () => {
     });
   }, []);
 
-  const currentExperience = useMemo(() => experiences[activeExperience], [activeExperience]);
+  const currentExperience = useMemo(
+    () => localizedExperiences[activeExperience],
+    [localizedExperiences, activeExperience],
+  );
 
   useEffect(() => {
     if (isInView) {
@@ -95,9 +114,7 @@ const Experience = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={`${styles.sectionSubText} text-center`}>
-          My Professional Journey
-        </p>
+        <p className={`${styles.sectionSubText} text-center`}>{t("experience.subtitle")}</p>
       </motion.div>
 
       <motion.div
@@ -108,17 +125,15 @@ const Experience = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience
-        </h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>{t("experience.title")}</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col md:flex-row gap-10">
         <div className="md:w-1/3">
           <div className="flex flex-col space-y-4">
-            {experiences.map((experience, index) => (
+            {localizedExperiences.map((experience, index) => (
               <ExperienceCard
-                key={`experience-${index}`}
+                key={experience.id ?? `experience-${index}`}
                 experience={experience}
                 isActive={index === activeExperience}
                 onClick={() => handleExperienceClick(index)}
@@ -130,7 +145,7 @@ const Experience = () => {
         <div className="md:w-2/3">
           <AnimatePresence mode="wait" initial={false}>
             {!isPending && (
-              <ExperienceDetails key={currentExperience.company_name} experience={currentExperience} />
+              <ExperienceDetails key={currentExperience.id ?? currentExperience.company_name} experience={currentExperience} />
             )}
           </AnimatePresence>
         </div>

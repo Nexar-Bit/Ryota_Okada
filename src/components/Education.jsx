@@ -10,7 +10,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../styles";
 import { education } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { useI18n } from "../i18n";
 
 const EducationCard = ({ education }) => {
   return (
@@ -54,6 +54,7 @@ const EducationCard = ({ education }) => {
 };
 
 const Education = () => {
+  const { get, t } = useI18n();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.05, margin: "0px 0px -80px 0px" });
   const mainControls = useAnimation();
@@ -74,7 +75,7 @@ const Education = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={`${styles.sectionSubText} text-center`}>What I have Studied so far</p>
+        <p className={`${styles.sectionSubText} text-center`}>{t("education.subtitle")}</p>
       </motion.div>
 
       <motion.div
@@ -85,14 +86,21 @@ const Education = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <h2 className={`${styles.sectionHeadText} text-center`}>Education.</h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>{t("education.title")}</h2>
       </motion.div>
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
-          {education.map((education, index) => (
-            <EducationCard key={`experience-${index}`} education={education} />
-          ))}
+          {education.map((ed, index) => {
+            const loc = ed.id ? get(`education.items.${ed.id}`) : null;
+            const merged = {
+              ...ed,
+              title: loc?.title ?? ed.title,
+              company_name: loc?.school ?? ed.company_name,
+              points: Array.isArray(loc?.points) ? loc.points : ed.points,
+            };
+            return <EducationCard key={ed.id ?? index} education={merged} />;
+          })}
         </VerticalTimeline>
       </div>
     </div>
