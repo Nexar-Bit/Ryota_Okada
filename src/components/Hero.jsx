@@ -70,16 +70,16 @@ const WavingHand = () => {
 
 const Hero = () => {
   const typedItems = [
-    "Software Developer",
-    "Systems Administrator",
-    "Computer Enthusiast",
-    "Team Leader"
-  ];
+    "Full Stack Software Engineer",
+    "Based in Japan",
+    "Web & APIs",
+    "End-to-End Products",
+  ]
 
   return (
-    <section className="relative w-full h-screen mx-auto">
-      <style jsx>{`
-        @keyframes wave {
+    <section className="relative isolate w-full min-h-screen mx-auto overflow-hidden bg-primary">
+      <style>{`
+        @keyframes hero-wave {
           0% { transform: rotate(0deg); }
           10% { transform: rotate(-10deg); }
           20% { transform: rotate(12deg); }
@@ -89,14 +89,14 @@ const Hero = () => {
           100% { transform: rotate(0deg); }
         }
         .wave-emoji {
-          animation-name: wave;
+          animation-name: hero-wave;
           animation-duration: 1.8s;
           animation-iteration-count: infinite;
           transform-origin: 70% 70%;
           display: inline-block;
         }
       `}</style>
-      <div className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
+      <div className={`absolute inset-0 top-[120px] z-10 max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
@@ -104,7 +104,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Sunny</span> <WavingHand />
+            Hi, I&apos;m <span className="text-[#915EFF]">Ryota</span> <WavingHand />
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I'm a <TypewriterText texts={typedItems} />
@@ -113,11 +113,12 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <br /><br /><br />
 
-      <ComputersCanvas />
+      <div className="relative z-0 mt-4 h-[min(52vh,560px)] min-h-[280px] w-full sm:h-[min(55vh,600px)]">
+        <ComputersCanvas />
+      </div>
 
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="absolute xs:bottom-10 bottom-32 z-10 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
             <motion.div

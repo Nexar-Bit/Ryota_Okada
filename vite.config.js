@@ -114,4 +114,13 @@ const resumeDevPlugin = {
 
 export default defineConfig({
   plugins: [react(), resumeDevPlugin],
+  server: {
+    // Astrill (and similar VPNs) can interfere with loopback-only binds; listening on
+    // all interfaces avoids "can't reach localhost" and lets you use the Network URL.
+    host: true,
+    port: 5173,
+    strictPort: false,
+    // If hot reload WebSockets fail while VPN is connected, try uncommenting:
+    // hmr: { protocol: 'ws', host: 'localhost', port: 5173 },
+  },
 })

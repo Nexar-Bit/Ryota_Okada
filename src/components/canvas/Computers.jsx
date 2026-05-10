@@ -15,7 +15,7 @@ const Computers = ({ isMobile }) => {
   });
 
   return (
-    <mesh ref={meshRef}>
+    <group ref={meshRef}>
       <hemisphereLight intensity={0.15} groundColor='black' />
       <spotLight
         position={[-20, 50, 10]}
@@ -32,7 +32,7 @@ const Computers = ({ isMobile }) => {
         position={isMobile ? [0, -3, 0] : [0, -3.25, -1.5]}
         rotation={isMobile ? [0, 0, 0] : [-0.01, -0.2, -0.1]}
       />
-    </mesh>
+    </group>
   );
 };
 
@@ -62,6 +62,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
+      className="w-full h-full min-h-[inherit]"
       frameloop='always'
       shadows
       dpr={[1, 2]}

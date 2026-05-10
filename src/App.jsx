@@ -90,7 +90,16 @@ const OTUWebring = () => {
 function App() {
   return (
       <BrowserRouter>
-        <div className='relative z-0 bg-primary'>
+        <div className='portfolio-glossy relative z-0 bg-primary'>
+          <div
+            className="pointer-events-none fixed inset-0 z-[1] overflow-hidden"
+            aria-hidden="true"
+          >
+            <div className="laser-beam laser-beam--a" />
+            <div className="laser-beam laser-beam--b" />
+            <div className="laser-beam laser-beam--c" />
+            <div className="laser-glow" />
+          </div>
           <div className="div bg-hero-pattern bg-cover bg-no-repeat bg-center">
             <Navbar />
             <Hero />

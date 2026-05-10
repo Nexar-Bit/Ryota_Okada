@@ -8,22 +8,23 @@ const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive object={earth.scene} scale={4.2} position-y={0} rotation-y={0} />
   );
 };
 
 const EarthCanvas = () => {
   return (
     <Canvas
+      className="h-full w-full min-h-[inherit]"
       shadows
-      frameloop='demand'
+      frameloop="always"
       dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: true }}
       camera={{
-        fov: 49,
+        fov: 42,
         near: 0.1,
         far: 200,
-        position: [-4, 3, 6],
+        position: [-3.2, 2.6, 5.2],
       }}
     >
       <Suspense fallback={<CanvasLoader />}>

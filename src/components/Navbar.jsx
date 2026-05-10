@@ -103,7 +103,7 @@ const Navbar = () => {
                 textFillColor: "transparent",
               }} 
             >
-              {"</"}Sunny Patel{">"}
+              {"</"}Ryota Okada{">"}
             </span>
           </motion.p>
         </Link>

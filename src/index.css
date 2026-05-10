@@ -199,6 +199,160 @@
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
-      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),       -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+/* --- Modern glossy typography + laser ambience --- */
+.portfolio-glossy {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.portfolio-glossy :where(
+    p,
+    li,
+    label,
+    td,
+    th,
+    button,
+    input,
+    textarea,
+    select,
+    a,
+    span,
+    small,
+    em,
+    strong,
+    b,
+    i,
+    code,
+    time,
+    figcaption
+  ) {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1),
+    0 2px 14px rgba(145, 94, 255, 0.14),
+    0 -1px 0 rgba(0, 0, 0, 0.28);
+}
+
+.portfolio-glossy .canvas-html-loader,
+.portfolio-glossy .canvas-html-loader * {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.portfolio-glossy :where(h1, h2, h3, h4, h5, h6) {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22),
+    0 3px 22px rgba(167, 139, 250, 0.38),
+    0 -1px 0 rgba(0, 0, 0, 0.45);
+  filter: drop-shadow(0 2px 12px rgba(124, 58, 237, 0.22));
+}
+
+.portfolio-glossy .text-secondary {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06),
+    0 1px 16px rgba(145, 94, 255, 0.12),
+    0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+@keyframes laser-scan {
+  0% {
+    transform: translateX(-120%) skewY(-6deg);
+    opacity: 0.08;
+  }
+  15% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.28;
+  }
+  100% {
+    transform: translateX(120vw) skewY(-6deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes laser-float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(-18deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(18vh) translateX(8vw) rotate(-16deg);
+    opacity: 0.38;
+  }
+}
+
+.laser-glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      rgba(168, 85, 247, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 70%,
+      rgba(34, 211, 238, 0.08),
+      transparent 50%
+    );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.laser-beam {
+  position: absolute;
+  left: 0;
+  width: min(55vw, 520px);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.15) 15%,
+    rgba(192, 132, 252, 0.95) 45%,
+    rgba(34, 211, 238, 0.85) 55%,
+    rgba(168, 85, 247, 0.15) 85%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 10px 2px rgba(168, 85, 247, 0.45),
+    0 0 28px 8px rgba(34, 211, 238, 0.25),
+    0 0 48px 14px rgba(167, 139, 250, 0.15);
+  filter: blur(0.35px);
+  mix-blend-mode: screen;
+  animation: laser-scan 11s ease-in-out infinite;
+}
+
+.laser-beam--a {
+  top: 18%;
+  animation-duration: 14s;
+}
+
+.laser-beam--b {
+  top: 46%;
+  width: min(48vw, 440px);
+  animation-duration: 18s;
+  animation-delay: -6s;
+  opacity: 0.85;
+}
+
+.laser-beam--c {
+  top: 72%;
+  width: min(62vw, 580px);
+  height: 2px;
+  animation: laser-float 16s ease-in-out infinite;
+  animation-delay: -3s;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .laser-beam,
+  .laser-beam--c {
+    animation: none;
+    opacity: 0.18;
   }
 }

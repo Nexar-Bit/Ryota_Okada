@@ -2,43 +2,64 @@
 
 import { useEffect, useRef } from "react"
 import { motion, useAnimation, useInView } from "framer-motion"
+import { Code2, Cpu, Globe2, Layers3, Sparkles } from "lucide-react"
 
 import { styles } from "../styles"
 import { SectionWrapper } from "../hoc"
 import { fadeIn } from "../utils/motion"
-import { resume, profilepic } from "../assets"
+import { profilepic } from "../assets"
 
-const ServiceCard = ({ index, title, icon }) => (
-  <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className="w-full xs:w-[250px]">
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
-    >
-      <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col relative overflow-hidden">
-        <motion.img
-          src={icon}
-          alt="web-development"
-          className="w-16 h-16 object-contain"
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        />
-
-        <h3 className="text-white text-[20px] font-bold text-center">{title}</h3>
-
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0"
-          whileHover={{ opacity: 0.2 }}
-          transition={{ duration: 0.3 }}
-        />
-      </div>
-    </motion.div>
-  </motion.div>
+const OverviewIconBadge = ({ children }) => (
+  <span className="overview-icon-badge mr-4 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-white/[0.12] bg-gradient-to-br from-[#915EFF]/35 via-[#1a1535] to-cyan-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_40px_rgba(145,94,255,0.22)] backdrop-blur-md ring-1 ring-white/[0.06]">
+    {children}
+  </span>
 )
+
+const OVERVIEW_ITEMS = [
+  {
+    Icon: Code2,
+    body: (
+      <>
+        I&apos;m Ryota Okada, a Full Stack Software Engineer based in Japan—shipping APIs, data layers, and interfaces
+        users rely on every day.
+      </>
+    ),
+  },
+  {
+    Icon: Globe2,
+    body: (
+      <>
+        I care about clear architecture, maintainable codebases, and collaboration across design, product, and
+        engineering.
+      </>
+    ),
+  },
+  {
+    Icon: Layers3,
+    body: (
+      <>
+        From backend services and databases to React-based front ends, I enjoy owning features end to end and improving
+        how teams deliver software.
+      </>
+    ),
+  },
+  {
+    Icon: Cpu,
+    body: (
+      <>
+        Always learning—whether that&apos;s performance, DevOps, or new frameworks that fit the problem at hand.
+      </>
+    ),
+  },
+  {
+    Icon: Sparkles,
+    body: <>I&apos;m always curious and constantly learning.</>,
+  },
+]
 
 const About = () => {
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05, margin: "0px 0px -80px 0px" })
   const mainControls = useAnimation()
 
   useEffect(() => {
@@ -76,11 +97,11 @@ const About = () => {
           variants={fadeIn("right", "spring", 0.5, 0.75)}
           className="w-full md:w-1/3 flex flex-col items-center"
         >
-          <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-[0_0_22.5px_7.5px_rgba(128,0,1028,1.0)]">
+          <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-[0_0_22.5px_7.5px_rgba(128,0,1028,1.0)] ring-2 ring-white/[0.08]">
             <div className="w-full h-full overflow-hidden">
               <img
                 src={profilepic || "/placeholder.svg"}
-                alt="Sunny Patel"
+                alt="Ryota Okada"
                 className="w-full h-full object-cover"
                 style={{
                   objectFit: "cover",
@@ -89,72 +110,22 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="mt-10 flex flex-wrap gap-5 justify-center">
-            <motion.button
-              className="px-6 py-3 font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-md shadow-[0_5px_0_0_rgba(0,0,0,0.6)] transition-all duration-100 ease-in-out hover:shadow-[0_3px_0_0_rgba(0,0,0,0.6)] hover:translate-y-[2px] active:translate-y-1 active:shadow-none select-none"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.open(resume, "_blank")}
-            >
-              Resume
-            </motion.button>
-
-            <motion.button
-              className="px-6 py-3 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-md shadow-[0_5px_0_0_rgba(0,0,0,0.6)] transition-all duration-100 ease-in-out hover:shadow-[0_3px_0_0_rgba(0,0,0,0.6)] hover:translate-y-[2px] active:translate-y-1 active:shadow-none select-none"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.open("https://www.linkedin.com/in/sunny-patel-30b460204/", "_blank")}
-            >
-              LinkedIn
-            </motion.button>
-
-            <motion.button
-              className="px-6 py-3 font-semibold text-white bg-gradient-to-r from-gray-600 to-gray-800 rounded-md shadow-[0_5px_0_0_rgba(0,0,0,0.6)] transition-all duration-100 ease-in-out hover:shadow-[0_3px_0_0_rgba(0,0,0,0.6)] hover:translate-y-[2px] active:translate-y-1 active:shadow-none select-none"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.open("https://github.com/sunnypatell", "_blank")}
-            >
-              GitHub
-            </motion.button>
-          </div>
         </motion.div>
 
         <motion.div variants={fadeIn("left", "spring", 0.5, 0.75)} className="w-full md:w-2/3">
-          <motion.ul
-            variants={fadeIn("", "", 0.1, 1)}
-            className="mt-4 text-secondary text-[17px] max-w-3xl space-y-6 list-none"
-          >
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.1, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">👨‍💻</span>
-              <span>
-                I&apos;m a Software Engineer with over 4 years of experience in software development and cloud
-                technologies.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.2, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🎓</span>
-              <span>
-                Currently working toward my Honours Bachelor of Science in Computer Science at Ontario Tech University,
-                I&apos;m all about building reliable, scalable software that makes a difference.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.3, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🛠</span>
-              <span>
-                From full-stack development to cloud-based solutions, I&apos;ve led enterprise-level projects that
-                streamline operations and deliver real impact.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.4, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🔧</span>
-              <span>
-                I enjoy automating workflows, optimizing systems, and turning complex challenges into real results. 📈
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.5, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">💡</span>
-              <span>I&apos;m always curious and constantly learning.</span>
-            </motion.li>
+          <motion.ul variants={fadeIn("", "", 0.1, 1)} className="mt-4 text-secondary text-[17px] max-w-3xl space-y-6 list-none">
+            {OVERVIEW_ITEMS.map(({ Icon, body }, index) => (
+              <motion.li
+                key={index}
+                className="flex items-start"
+                variants={fadeIn("up", "spring", (index + 1) * 0.1, 0.75)}
+              >
+                <OverviewIconBadge>
+                  <Icon className="h-[22px] w-[22px] text-violet-100" strokeWidth={1.85} aria-hidden />
+                </OverviewIconBadge>
+                <span>{body}</span>
+              </motion.li>
+            ))}
           </motion.ul>
         </motion.div>
       </div>

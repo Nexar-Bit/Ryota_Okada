@@ -55,7 +55,7 @@ const EducationCard = ({ education }) => {
 
 const Education = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.05, margin: "0px 0px -80px 0px" });
   const mainControls = useAnimation();
 
   useEffect(() => {

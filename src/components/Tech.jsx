@@ -75,10 +75,11 @@ const Tech = () => {
   });
 
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
+  const isInView = useInView(ref, {
     once: true,
-    amount: 0.2
-  });
+    amount: 0.05,
+    margin: "0px 0px -80px 0px",
+  })
   const mainControls = useAnimation();
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import profilepic from './pfp.png';
+import profilepic from "./pfp.jpg";
 
 import logo from "./logo0.png";
 import backend from "./backend.png";
